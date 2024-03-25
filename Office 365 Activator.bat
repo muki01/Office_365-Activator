@@ -26,6 +26,8 @@ echo      Created by Muki                                                       
 echo.  
 echo                                      1. Activate Office 365
 echo.
+echo.
+echo.
 set /p select=">>> "
 if %select%==1 goto applyKey
 
@@ -56,8 +58,11 @@ if %select%==1 goto applyKey
 
 :skms
     if %server% == 1 set KMS=107.175.77.7
-    if %server% == 2 set KMS=kms7.MSGuides.com
-    if %server% == 3 goto busyError
+    if %server% == 2 set KMS=kms7.devomman.com
+    if %server% == 3 set KMS=e8.us.to
+    if %server% == 4 set KMS=e9.us.to
+    if %server% == 5 set KMS=kms7.MSGuides.com
+    if %server% == 6 goto busyError
     cscript //nologo ospp.vbs /sethst:%KMS% >nul
     goto activate
 
@@ -72,6 +77,7 @@ if %select%==1 goto applyKey
 
 
 :activatedSuccessfully
+    cls
     echo.
     echo ---------------------------------
     echo   Office Activated Successfully
@@ -82,6 +88,7 @@ if %select%==1 goto applyKey
 
 
 :serverError
+    cls
     echo.
     echo ------------------------------------------
     echo   The connection to the server failed! 
